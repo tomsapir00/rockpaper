@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>rockpaper</title>
+</head>
+
+<body>
+  <script>  
+  
+  //. basic definitions
+
+    let selection = ["rock" , "paper", "Scissors"];
+    let question = "new round, r u ready?";
+
+    ask();     //. operate the start question
+
+    
+    
+    function ask(question, yes, no){       //.the start question
+
+        if (confirm(question)){
+        userPlay()
+        }
+        else{
+        alert("ok... until next time");
+        }
+
+     }
+    
+
+
+    
+//.main function (if start question confirmed)
+
+      function userPlay(){
+
+        computerPlay();  //.operate the random computer choice function.
+
+        function computerPlay(){  //. the random computer choice function
+        let randomComputerChoice = selection[Math.floor(Math.random()* selection.length)];
+        return randomComputerChoice;
+        }
+        
+
+         let userselection = prompt("rock? paper? scissors?", "choose");  //.user choice window 
+       
+         if (userselection.toLowerCase() == "rock"){            //.if user = rock
+
+            if(computerPlay() == "paper"){
+            alert("you loose!, computer is paper, you needed scissors..");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "Scissors"){
+            alert("you win! the computer had Scissors");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "rock") {
+            alert("no winner.. computer had also rock");
+            ask();
+            return;
+            }
+              
+          }
+
+          else if (userselection.toLowerCase() == "paper"){           //.if user = paper
+
+            if(computerPlay() == "paper"){
+            alert("no winner this round :(, both of u choose the same");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "Scissors"){
+            alert("you loose! the computer had Scissors");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "rock") {
+            alert("winner!! computer had also rock");
+            ask();
+            return;
+           }
+
+          }
+
+          else if (userselection.toLowerCase() == "scissors"){        //.if user = scissors
+
+            if(computerPlay() == "paper"){
+            alert("oh yess! computer had paper");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "Scissors"){
+            alert("no winner... the computer had Scissors too");
+            ask();
+            return;
+            }
+            else if (computerPlay() == "rock") {
+            alert("sorry... computer had rock. try again");
+            ask();
+            return;
+            }
+
+          }
+
+       } 
+
+      
+</script>
+</body>
+</html>
